@@ -62,6 +62,7 @@ td {
     text-align: center;
     width : 2.2rem;
     height: 2.2rem;
+    min-width: 2.2rem;
     border-collapse: collapse;
     border : 2px black solid;
 }
