@@ -140,23 +140,13 @@ module.exports = {
             }
         } return false
     },
+
     zerarTansparencia: (array) => {
         for (let i = 0; i < array.length; i++) {
             for (let j = 0; j < array[i].length; j++) {
                 array[i][j] = 0
             }
         }
-    },
-
-    verificarVencedor: (array) => {
-        for (let i = 0; i < array.length; i++) {
-            for (let j = 0; j < array[i].length; j++) {
-                if (array[i][j] != -2) {
-                    return false
-                }
-            }
-        }
-        return true
     }
 }
 

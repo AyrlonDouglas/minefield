@@ -98,7 +98,7 @@ server.get('/gaming', (req, res) => {
         clicks++
     }
     if (((colunas * linhas) - numeroDeBombas) == clicks) {
-        res.redirect('/victory')
+        res.redirect('/victory');
     }
 
     let clicouEmBomba = fun.verificarSeTemBomba(transparencia, arrayComBombasVerificadas);
@@ -109,9 +109,9 @@ server.get('/gaming', (req, res) => {
 
 
     if (clicouEmBomba) {
-        res.redirect('/lose1')
+        res.redirect('/lose1');
     } else {
-        res.send(html)
+        res.send(html);
     }
 });
 
