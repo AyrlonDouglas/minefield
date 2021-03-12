@@ -1,0 +1,140 @@
+* {
+    margin: 0;
+    border : 0;
+    padding : 0;
+    box-sizing: border-box;
+    font-family: monospace;
+}
+
+/* NAVIGATION*/
+
+h1 {
+    font-size : 3rem;
+}
+header {
+    background-color: cadetblue;
+    text-align: center;
+    color:white;
+    text-shadow: 1px 1px 1px black;
+    border : 0.1rem black solid;
+}
+nav {
+    font-size: 2rem;
+    list-style-type: none;
+
+}
+nav a {
+    text-decoration: none;
+    font-weight: 700;
+    color: rgb(0, 255, 98);    
+}
+nav li {
+    display: inline;
+    margin: 0 0.6rem;
+}
+
+/*PAGE INITIAL*/
+.butto-nPlay {
+    color:black;
+    width:11rem;
+    font-size: 2rem;
+    cursor: pointer;
+    text-align: center;
+    margin:3rem auto;
+    display: block;
+    background-color: coral;
+    border-radius: 0.5rem;
+    box-shadow: 2px 2px 3px black;
+    
+}
+ a {
+    text-decoration: none;
+}
+
+/*TABLE GAME*/
+
+table {
+    margin: 1rem auto;
+    border-collapse: collapse;
+}
+
+td {
+    text-align: center;
+    width : 2rem;
+    height: 2rem;
+    border-collapse: collapse;
+    border : 2px black solid;
+}
+.campo {
+    width: 2rem;
+    height: 2rem;
+    background-color: rgb(182, 181, 181);
+}
+
+.campo-sem-mina {
+    width: 2rem;
+    height: 2rem;
+    font-size: 1.5rem;
+}
+
+.img-bomba {
+    width: 80%;
+}
+/*LEVEL*/
+.level {
+    text-align: center;
+    font-size: 2rem;
+    
+}
+.level ul {
+    margin : 2rem auto;
+    text-align: center;
+    display: inline-block;
+}
+.level li {
+    width : 13rem;
+    background-color: coral;
+    border-radius: 10px;
+    margin: 10px;
+    box-shadow: 2px 2px 3px black;
+}
+.level a {
+    text-decoration: none;
+    color: black;
+    list-style-type: none;
+}
+/* LOSE */
+.wrapper-lose {
+    margin-top: 3rem;
+    font-size: 2.5rem;
+    text-align: center;
+}
+.wrapper-lose a {
+    width : 7rem;
+    font-size: 2rem;
+}
+.wrapper-lose button {
+    font-size: 1.5rem;
+    margin-top: 2rem;
+    padding:0.6rem;
+    background-color: coral;
+    border-radius: 10px;
+    box-shadow: 2px 2px 2px black;
+    cursor: pointer;
+}
+
+/*AUTHOR*/
+.author {
+    text-align: center;
+    margin-top: 1rem;
+}
+.author h2 {
+    margin-bottom: 1rem;
+}
+.author p {
+    margin-top: 0.3rem;
+    font-size: 1.2rem;
+}
+
+
+
