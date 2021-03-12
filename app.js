@@ -132,6 +132,7 @@ server.get('/lose1', (req, res) => {
                                 <nav>
                                     <ul>
                                         <li><a href="/">Start</a></li>
+                                        <li><a href="/author">Author</a></li>
                                     </ul>
                                 </nav>
                             </header>`
