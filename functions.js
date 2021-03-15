@@ -77,45 +77,48 @@ module.exports = {
 
                 if (array[i][j] != 9) {
 
-                    if (linhaAnterior != -1
-                        && colunaAnterior != -1
+                    if (linhaAnterior > -1
+                        && colunaAnterior > -1
                         && array[linhaAnterior][colunaAnterior] == 9) {
 
                         contadorBombasAoRedor++
                     }
-                    if (linhaAnterior != -1
+                    if (linhaAnterior > -1
                         && array[linhaAnterior][j] == 9) {
 
                         contadorBombasAoRedor++
                     }
-                    if (linhaAnterior != -1
-                        && colunaPosterior != array[i].length
+                    if (linhaAnterior > -1
+                        && colunaPosterior < array[i].length
                         && array[linhaAnterior][colunaPosterior] == 9) {
+
                         contadorBombasAoRedor++
                     }
-                    if (colunaAnterior != -1
+                    if (colunaAnterior > -1
                         && array[i][colunaAnterior] == 9) {
+
                         contadorBombasAoRedor++
                     }
-                    if (colunaPosterior != array[i].length
+                    if (colunaPosterior < array[i].length
                         && array[i][colunaPosterior] == 9) {
 
                         contadorBombasAoRedor++
                     }
-                    if (linhaPosterior != array.length
-                        && colunaPosterior != array[i].length
+                    if (linhaPosterior < array.length
+                        && colunaAnterior > -1
                         && array[linhaPosterior][colunaAnterior] == 9) {
 
                         contadorBombasAoRedor++
                     }
-                    if (linhaPosterior != array.length
+                    if (linhaPosterior < array.length
                         && array[linhaPosterior][j] == 9) {
 
                         contadorBombasAoRedor++
                     }
-                    if (linhaPosterior != array.length
-                        && colunaPosterior != array[i].length
+                    if (linhaPosterior < array.length
+                        && colunaPosterior < array[i].length
                         && array[linhaPosterior][colunaPosterior] == 9) {
+
                         contadorBombasAoRedor++
                     }
                     array[i][j] = contadorBombasAoRedor
@@ -142,28 +145,28 @@ module.exports = {
                         const colunaAnterior = j - 1;
                         const colunaPosterior = j + 1;
 
-                        if (linhaAnterior != -1 && colunaAnterior != -1) {
+                        if (linhaAnterior > -1 && colunaAnterior > -1) {
                             arrayTransparencia[linhaAnterior][colunaAnterior] = -2
                         }
-                        if (linhaAnterior != -1) {
+                        if (linhaAnterior > -1) {
                             arrayTransparencia[linhaAnterior][j] = -2
                         }
-                        if (linhaAnterior != -1 && colunaPosterior != arrayDeBombas[i].length) {
+                        if (linhaAnterior > -1 && colunaPosterior < arrayDeBombas[i].length) {
                             arrayTransparencia[linhaAnterior][colunaPosterior] = -2
                         }
-                        if (colunaAnterior != -1) {
+                        if (colunaAnterior > -1) {
                             arrayTransparencia[i][colunaAnterior] = -2
                         }
-                        if (colunaPosterior != arrayDeBombas[i].length) {
+                        if (colunaPosterior < arrayDeBombas[i].length) {
                             arrayTransparencia[i][colunaPosterior] = -2
                         }
-                        if (linhaPosterior != arrayDeBombas.length && colunaPosterior != arrayDeBombas[i].length) {
+                        if (linhaPosterior < arrayDeBombas.length && colunaAnterior > -1) {
                             arrayTransparencia[linhaPosterior][colunaAnterior] = -2
                         }
-                        if (linhaPosterior != arrayDeBombas.length) {
+                        if (linhaPosterior < arrayDeBombas.length) {
                             arrayTransparencia[linhaPosterior][j] = -2
                         }
-                        if (linhaPosterior != arrayDeBombas.length && colunaPosterior != arrayDeBombas[i].length) {
+                        if (linhaPosterior < arrayDeBombas.length && colunaPosterior < arrayDeBombas[i].length) {
                             arrayTransparencia[linhaPosterior][colunaPosterior] = -2
                         }
                     }
@@ -177,40 +180,6 @@ module.exports = {
             for (let j = 0; j < array[i].length; j++) {
                 array[i][j] = 0
             }
-        }
-    },
-
-    abrirCamposSemMina: (array, i, j) => {
-
-        const linhaAnterior = i - 1;
-        const linhaPosterior = i + 1;
-
-        const colunaAnterior = j - 1;
-        const colunaPosterior = j + 1;
-
-        if (linhaAnterior != -1 && colunaAnterior != -1) {
-            arrayComBombas[linhaAnterior][colunaAnterior] = 'campoSafe'
-        }
-        if (linhaAnterior != -1) {
-            arrayComBombas[linhaAnterior][j] = 'campoSafe'
-        }
-        if (linhaAnterior != -1 && colunaPosterior != array[i].length) {
-            arrayComBombas[linhaAnterior][colunaPosterior] = 'campoSafe'
-        }
-        if (colunaAnterior != -1) {
-            arrayComBombas[i][colunaAnterior] = 'campoSafe'
-        }
-        if (colunaPosterior != array[i].length) {
-            arrayComBombas[i][colunaPosterior] = 'campoSafe'
-        }
-        if (linhaPosterior != array.length && colunaPosterior != array[i].length) {
-            arrayComBombas[linhaPosterior][colunaAnterior] = 'campoSafe'
-        }
-        if (linhaPosterior != array.length) {
-            arrayComBombas[linhaPosterior][j] = 'campoSafe'
-        }
-        if (linhaPosterior != array.length && colunaPosterior != array[i].length) {
-            arrayComBombas[linhaPosterior][colunaPosterior] = 'campoSafe'
         }
     },
 
