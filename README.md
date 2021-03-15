@@ -3,7 +3,7 @@
 Campo minado minimalista.
 
 Para acessar é necessário: 
- - Instalação do node.js : https://nodejs.org/en/ ,
+ - Instalação do node.js : https://nodejs.org/en/
  - Fazer o download do projeto :
     - Caso você tem instalado o git : git clone https://github.com/AyrlonDouglas/minefield.git
     - Ou baixe diretamente pelo link : https://github.com/AyrlonDouglas/minefield/archive/main.zip
