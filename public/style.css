@@ -95,13 +95,14 @@ td a {
 .level {
     text-align: center;
     font-size: 3rem;
-    
 }
+
 .level ul {
     margin : 2rem auto;
     text-align: center;
     display: inline-block;
 }
+
 .level li {
     width : 13rem;
     background-color: coral;
@@ -109,21 +110,26 @@ td a {
     margin: 10px;
     box-shadow: 1px 1px 2px black;
 }
+
 .level a {
     text-decoration: none;
     color: black;
     list-style-type: none;
 }
+
 /* LOSE */
+
 .wrapper-lose {
     margin-top: 3rem;
     font-size: 3rem;
     text-align: center;
 }
+
 .wrapper-lose a {
     width : 7rem;
     font-size: 2rem;
 }
+
 .wrapper-lose button {
     font-size: 3rem;
     margin-top: 2rem;
@@ -146,6 +152,3 @@ td a {
     margin-top: 0.3rem;
     font-size: 1.2rem;
 }
-
-
-
