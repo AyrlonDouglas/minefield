@@ -25,13 +25,10 @@ const layoutBase = `<!DOCTYPE html>
                                 </nav>
                             </header>`
 let transparencia;
-let arrayComBombasVerificadas;
-let arraySemBombas = [];
-let arrayComBombas;
+let campoMinado = [];
 let numeroDeBombas;
 let linhas;
 let colunas;
-let clicks;
 
 server.get('/', (req, res) => {
     let html = layoutBase;
@@ -68,52 +65,42 @@ server.get('/level', (req, res) => {
 
 server.get('/game', (req, res) => {
     let html = layoutBase;
-    clicks = 0;
     numeroDeBombas = req.query.bombas;
     linhas = req.query.lin;
     colunas = req.query.col;
 
-    arraySemBombas = fun.criarArray(linhas, colunas);
-
-    arrayComBombas = fun.implementarBombasNoArray(arraySemBombas, numeroDeBombas);
-
-    //console.log(arrayComBombas)
-    arrayComBombasVerificadas = fun.verificarLocalBombas(arrayComBombas);
-
+    campoMinado = fun.criarArray(linhas, colunas);
     transparencia = fun.criarTransparencia(linhas, colunas);
 
-    html += fun.criarTabela(linhas, colunas, transparencia, arrayComBombasVerificadas);
+    fun.implementarBombasNoArray(campoMinado, numeroDeBombas);
+    fun.verificarLocalBombas(campoMinado);
 
+    html += fun.criarTabela(linhas, colunas, transparencia, campoMinado);
     html += `</body></html>`;
+
     res.send(html);
 });
 
 server.get('/gaming', (req, res) => {
     let html = layoutBase;
-    let lin = req.query.linha;
-    let col = req.query.coluna;
+    const lin = req.query.linha;
+    const col = req.query.coluna;
 
     if (transparencia[lin][col] == -1) {
         transparencia[lin][col] = -2;
-        clicks++
     }
 
-    let venceu = fun.venceu(transparencia, linhas, colunas, numeroDeBombas);
-    console.log(linhas + ' ' + colunas)
+    const venceu = fun.venceu(transparencia, linhas, colunas, numeroDeBombas);
+    const perdeu = fun.verificarSeTemBomba(transparencia, campoMinado);
+
+    html += fun.criarTabela(linhas, colunas, transparencia, campoMinado);
+
+    html += `</body></html>`;
 
     if (venceu) {
         res.redirect('/victory');
     }
-
-    let clicouEmBomba = fun.verificarSeTemBomba(transparencia, arrayComBombasVerificadas);
-    console
-
-    html += fun.criarTabela(linhas, colunas, transparencia, arrayComBombasVerificadas);
-
-    html += `</body></html>`;
-
-
-    if (clicouEmBomba) {
+    else if (perdeu) {
         res.redirect('/lose1');
     } else {
         res.send(html);
@@ -144,7 +131,7 @@ server.get('/lose1', (req, res) => {
 
     fun.zerarTansparencia(transparencia)
 
-    html += fun.criarTabela(linhas, colunas, transparencia, arrayComBombasVerificadas);
+    html += fun.criarTabela(linhas, colunas, transparencia, campoMinado);
 
     html += `</body></html>`;
 

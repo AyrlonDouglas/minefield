@@ -50,25 +50,22 @@ module.exports = {
 
     implementarBombasNoArray: (array, numeroBombas) => {
         let contadorBombas = 0;
-        let arrayComBombas = array;
 
         while (contadorBombas < numeroBombas) {
             const linha = Math.floor(Math.random() * array.length);
             const coluna = Math.floor(Math.random() * array[0].length)
 
-            if (arrayComBombas[linha][coluna] != 9) {
-                arrayComBombas[linha][coluna] = 9;
+            if (array[linha][coluna] != 9) {
+                array[linha][coluna] = 9;
                 contadorBombas++
             }
         }
-        return arrayComBombas
     },
 
     verificarLocalBombas: (array) => {
-        let arrayComBombas = array;
 
-        for (let i = 0; i < arrayComBombas.length; i++) {
-            for (let j = 0; j < arrayComBombas[i].length; j++) {
+        for (let i = 0; i < array.length; i++) {
+            for (let j = 0; j < array[i].length; j++) {
 
                 let contadorBombasAoRedor = 0;
 
@@ -78,55 +75,54 @@ module.exports = {
                 const colunaAnterior = j - 1;
                 const colunaPosterior = j + 1;
 
-                if (arrayComBombas[i][j] != 9) {
+                if (array[i][j] != 9) {
 
                     if (linhaAnterior != -1
                         && colunaAnterior != -1
-                        && arrayComBombas[linhaAnterior][colunaAnterior] == 9) {
+                        && array[linhaAnterior][colunaAnterior] == 9) {
 
                         contadorBombasAoRedor++
                     }
                     if (linhaAnterior != -1
-                        && arrayComBombas[linhaAnterior][j] == 9) {
+                        && array[linhaAnterior][j] == 9) {
 
                         contadorBombasAoRedor++
                     }
                     if (linhaAnterior != -1
                         && colunaPosterior != array[i].length
-                        && arrayComBombas[linhaAnterior][colunaPosterior] == 9) {
+                        && array[linhaAnterior][colunaPosterior] == 9) {
                         contadorBombasAoRedor++
                     }
                     if (colunaAnterior != -1
-                        && arrayComBombas[i][colunaAnterior] == 9) {
+                        && array[i][colunaAnterior] == 9) {
                         contadorBombasAoRedor++
                     }
                     if (colunaPosterior != array[i].length
-                        && arrayComBombas[i][colunaPosterior] == 9) {
+                        && array[i][colunaPosterior] == 9) {
 
                         contadorBombasAoRedor++
                     }
                     if (linhaPosterior != array.length
                         && colunaPosterior != array[i].length
-                        && arrayComBombas[linhaPosterior][colunaAnterior] == 9) {
+                        && array[linhaPosterior][colunaAnterior] == 9) {
 
                         contadorBombasAoRedor++
                     }
                     if (linhaPosterior != array.length
-                        && arrayComBombas[linhaPosterior][j] == 9) {
+                        && array[linhaPosterior][j] == 9) {
 
                         contadorBombasAoRedor++
                     }
                     if (linhaPosterior != array.length
                         && colunaPosterior != array[i].length
-                        && arrayComBombas[linhaPosterior][colunaPosterior] == 9) {
+                        && array[linhaPosterior][colunaPosterior] == 9) {
                         contadorBombasAoRedor++
                     }
-                    arrayComBombas[i][j] = contadorBombasAoRedor
+                    array[i][j] = contadorBombasAoRedor
                 }
 
             }
         }
-        return arrayComBombas
     },
 
     verificarSeTemBomba: (arrayTransparencia, arrayDeBombas) => {
