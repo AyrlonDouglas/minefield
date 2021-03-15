@@ -2,8 +2,14 @@
 
 Campo minado minimalista.
 
-Para utilizar, bastar ter instalado no computador o node.js
+Para acessar é necessário: 
+ - Instalação do node.js : https://nodejs.org/en/ ,
+ - Fazer o download do projeto :
+    - Caso você tem instalado o git : git clone https://github.com/AyrlonDouglas/minefield.git
+    - Ou baixe diretamente pelo link : https://github.com/AyrlonDouglas/minefield/archive/main.zip
 
-Digite no cmd : node app.js , para iniciar o servidor localmente.
+Para iniciar o servidor digite 'npm start' ou 'node app.js' no comand dentro da pasta do projeto.
 
-Utilize a porta local 8000.
+acesse no browser: localhost:8000
+
+Divirta-se!
