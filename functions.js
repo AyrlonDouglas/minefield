@@ -223,7 +223,6 @@ module.exports = {
                 }
             }
         }
-        console.log((linhas * colunas) - count)
         return ((linhas * colunas) - count) <= numeroBombas ? true : false
     }
 }
