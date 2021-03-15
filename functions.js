@@ -12,7 +12,11 @@ module.exports = {
                 }
                 else if (bombas[i][j] == 9) {
                     tabela += `<td><img class="img-bomba" src="images/bomb.svg"></td>`
-                } else {
+                }
+                else if (bombas[i][j] == 0) {
+                    tabela += `<td class="campo-sem-mina"></td>`
+                }
+                else {
                     tabela += `<td class="campo-sem-mina">${bombas[i][j]}</td>`
                 }
             }
@@ -118,7 +122,6 @@ module.exports = {
                         contadorBombasAoRedor++
                     }
                     arrayComBombas[i][j] = contadorBombasAoRedor
-
                 }
 
             }
@@ -136,6 +139,38 @@ module.exports = {
                     if (arrayDeBombas[i][j] == 9) {
                         return true
                     }
+                    if (arrayDeBombas[i][j] == 0) {
+                        const linhaAnterior = i - 1;
+                        const linhaPosterior = i + 1;
+
+                        const colunaAnterior = j - 1;
+                        const colunaPosterior = j + 1;
+
+                        if (linhaAnterior != -1 && colunaAnterior != -1) {
+                            arrayTransparencia[linhaAnterior][colunaAnterior] = -2
+                        }
+                        if (linhaAnterior != -1) {
+                            arrayTransparencia[linhaAnterior][j] = -2
+                        }
+                        if (linhaAnterior != -1 && colunaPosterior != arrayDeBombas[i].length) {
+                            arrayTransparencia[linhaAnterior][colunaPosterior] = -2
+                        }
+                        if (colunaAnterior != -1) {
+                            arrayTransparencia[i][colunaAnterior] = -2
+                        }
+                        if (colunaPosterior != arrayDeBombas[i].length) {
+                            arrayTransparencia[i][colunaPosterior] = -2
+                        }
+                        if (linhaPosterior != arrayDeBombas.length && colunaPosterior != arrayDeBombas[i].length) {
+                            arrayTransparencia[linhaPosterior][colunaAnterior] = -2
+                        }
+                        if (linhaPosterior != arrayDeBombas.length) {
+                            arrayTransparencia[linhaPosterior][j] = -2
+                        }
+                        if (linhaPosterior != arrayDeBombas.length && colunaPosterior != arrayDeBombas[i].length) {
+                            arrayTransparencia[linhaPosterior][colunaPosterior] = -2
+                        }
+                    }
                 }
             }
         } return false
@@ -147,6 +182,53 @@ module.exports = {
                 array[i][j] = 0
             }
         }
+    },
+
+    abrirCamposSemMina: (array, i, j) => {
+
+        const linhaAnterior = i - 1;
+        const linhaPosterior = i + 1;
+
+        const colunaAnterior = j - 1;
+        const colunaPosterior = j + 1;
+
+        if (linhaAnterior != -1 && colunaAnterior != -1) {
+            arrayComBombas[linhaAnterior][colunaAnterior] = 'campoSafe'
+        }
+        if (linhaAnterior != -1) {
+            arrayComBombas[linhaAnterior][j] = 'campoSafe'
+        }
+        if (linhaAnterior != -1 && colunaPosterior != array[i].length) {
+            arrayComBombas[linhaAnterior][colunaPosterior] = 'campoSafe'
+        }
+        if (colunaAnterior != -1) {
+            arrayComBombas[i][colunaAnterior] = 'campoSafe'
+        }
+        if (colunaPosterior != array[i].length) {
+            arrayComBombas[i][colunaPosterior] = 'campoSafe'
+        }
+        if (linhaPosterior != array.length && colunaPosterior != array[i].length) {
+            arrayComBombas[linhaPosterior][colunaAnterior] = 'campoSafe'
+        }
+        if (linhaPosterior != array.length) {
+            arrayComBombas[linhaPosterior][j] = 'campoSafe'
+        }
+        if (linhaPosterior != array.length && colunaPosterior != array[i].length) {
+            arrayComBombas[linhaPosterior][colunaPosterior] = 'campoSafe'
+        }
+    },
+
+    venceu: (array, linhas, colunas, numeroBombas) => {
+        let count = 0;
+        for (let i = 0; i < array.length; i++) {
+            for (let j = 0; j < array[i].length; j++) {
+                if (array[i][j] == -2) {
+                    count++
+                }
+            }
+        }
+        console.log((linhas * colunas) - count)
+        return ((linhas * colunas) - count) <= numeroBombas ? true : false
     }
 }
 

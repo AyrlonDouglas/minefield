@@ -77,7 +77,7 @@ server.get('/game', (req, res) => {
 
     arrayComBombas = fun.implementarBombasNoArray(arraySemBombas, numeroDeBombas);
 
-    console.log(arrayComBombas)
+    //console.log(arrayComBombas)
     arrayComBombasVerificadas = fun.verificarLocalBombas(arrayComBombas);
 
     transparencia = fun.criarTransparencia(linhas, colunas);
@@ -97,11 +97,16 @@ server.get('/gaming', (req, res) => {
         transparencia[lin][col] = -2;
         clicks++
     }
-    if (((colunas * linhas) - numeroDeBombas) == clicks) {
+
+    let venceu = fun.venceu(transparencia, linhas, colunas, numeroDeBombas);
+    console.log(linhas + ' ' + colunas)
+
+    if (venceu) {
         res.redirect('/victory');
     }
 
     let clicouEmBomba = fun.verificarSeTemBomba(transparencia, arrayComBombasVerificadas);
+    console
 
     html += fun.criarTabela(linhas, colunas, transparencia, arrayComBombasVerificadas);
 
