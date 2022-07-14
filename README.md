@@ -2,7 +2,7 @@
 
 Campo minado minimalista.
 
-Demo: https://minefield-ayrlon.herokuapp.com/
+[DEMO](https://minefield-ayrlon.herokuapp.com/)
 
 Para rodar em servidor local é necessário: 
  - Instalação do node.js : https://nodejs.org/en/
