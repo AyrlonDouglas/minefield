@@ -2,7 +2,9 @@
 
 Campo minado minimalista.
 
-Para acessar é necessário: 
+Demo: https://minefield-ayrlon.herokuapp.com/
+
+Para rodar em servidor local é necessário: 
  - Instalação do node.js : https://nodejs.org/en/
  - Fazer o download do projeto :
     - Caso você tem instalado o git : git clone https://github.com/AyrlonDouglas/minefield.git
