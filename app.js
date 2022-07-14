@@ -162,6 +162,6 @@ server.get('/victory', (req, res) => {
 
 server.use(express.static('public'));
 
-server.listen(port, () => {
+server.listen(process.env.PORT || port, () => {
     console.log(`server ir running in port: ${port}`)
 });
