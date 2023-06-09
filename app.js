@@ -6,7 +6,7 @@ const minefieldRoutes = require('./src/routes/minefield.routes');
 // config
 const port = 8000;
 
-server.use(express.static('public'));
+server.use(express.static(__dirname+'public'));
 
 server.use('/', minefieldRoutes)
 
