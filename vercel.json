@@ -5,7 +5,7 @@
     "env": {},
     "builds": [
       {
-        "src": "src/app.js",
+        "src": "app.js",
         "use": "@vercel/node"
       },
       {
@@ -15,8 +15,8 @@
     ],
     "routes": [
       {
-        "src": "/api/(.*)",
-        "dest": "src/app.js",
+        "src": "/(.*)",
+        "dest": "app.js",
         "methods": ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"]
       },
       {
