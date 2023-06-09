@@ -1,5 +1,5 @@
-module.exports = {
-    criarTabela: (linhas, colunas, transparencia, bombas) => {
+class LogicGame {
+    criarTabela (linhas, colunas, transparencia, bombas)  {
         let tabela = `<div class="tabela-jogo"><table>`;
 
         for (let i = 0; i < linhas; i++) {
@@ -23,9 +23,9 @@ module.exports = {
         }
         tabela += `</table></div>`
         return tabela
-    },
+    }
 
-    criarTransparencia: (linhas, colunas) => {
+    criarTransparencia (linhas, colunas)  {
         let arrayTransparencia = [];
 
         for (let i = 0; i < linhas; i++) {
@@ -35,9 +35,9 @@ module.exports = {
             }
         }
         return arrayTransparencia
-    },
+    }
 
-    criarArray: (linhas, colunas) => {
+    criarArray (linhas, colunas)  {
         let array = [];
         for (let i = 0; i < linhas; i++) {
             array.push([]);
@@ -46,9 +46,9 @@ module.exports = {
             }
         }
         return array
-    },
+    }
 
-    implementarBombasNoArray: (array, numeroBombas) => {
+    implementarBombasNoArray (array, numeroBombas)  {
         let contadorBombas = 0;
 
         while (contadorBombas < numeroBombas) {
@@ -60,9 +60,9 @@ module.exports = {
                 contadorBombas++
             }
         }
-    },
+    }
 
-    verificarLocalBombas: (array) => {
+    verificarLocalBombas (array)  {
 
         for (let i = 0; i < array.length; i++) {
             for (let j = 0; j < array[i].length; j++) {
@@ -126,9 +126,9 @@ module.exports = {
 
             }
         }
-    },
+    }
 
-    verificarSeTemBomba: (arrayTransparencia, arrayDeBombas) => {
+    verificarSeTemBomba(arrayTransparencia, arrayDeBombas)  {
 
         for (let i = 0; i < arrayTransparencia.length; i++) {
 
@@ -173,17 +173,17 @@ module.exports = {
                 }
             }
         } return false
-    },
+    }
 
-    zerarTansparencia: (array) => {
+    zerarTansparencia(array)  {
         for (let i = 0; i < array.length; i++) {
             for (let j = 0; j < array[i].length; j++) {
                 array[i][j] = 0
             }
         }
-    },
+    }
 
-    venceu: (array, linhas, colunas, numeroBombas) => {
+    venceu (array, linhas, colunas, numeroBombas)  {
         let count = 0;
         for (let i = 0; i < array.length; i++) {
             for (let j = 0; j < array[i].length; j++) {
@@ -196,4 +196,4 @@ module.exports = {
     }
 }
 
-
+module.exports = LogicGame
