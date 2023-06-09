@@ -7,6 +7,10 @@
       {
         "src": "src/app.js",
         "use": "@vercel/node"
+      },
+      {
+        "src": "public/style.css",
+        "use": "@vercel/static"
       }
     ],
     "routes": [
