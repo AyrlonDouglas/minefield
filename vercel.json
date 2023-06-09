@@ -3,49 +3,49 @@
     "env": {},
     "builds": [
       {
-        "src": "src/app.js",
+        "src": "app.js",
         "use": "@vercel/node"
       }
     ],
     "routes": [
       {
-        "src": "/(.*)",
-        "dest": "src/app.js",
+        "src": "",
+        "dest": "app.js",
         "methods": ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"]
       },
       {
-        "src": "/author/(.*)",
-        "dest": "src/app.js",
+        "src": "/author",
+        "dest": "app.js",
         "methods": ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"]
       },
       {
-        "src": "/level/(.*)",
-        "dest": "src/app.js",
+        "src": "/level",
+        "dest": "app.js",
         "methods": ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"]
       },
       {
-        "src": "/game/(.*)",
-        "dest": "src/app.js",
+        "src": "/game",
+        "dest": "app.js",
         "methods": ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"]
       },
       {
-        "src": "/gaming/(.*)",
-        "dest": "src/app.js",
+        "src": "/gaming",
+        "dest": "app.js",
         "methods": ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"]
       },
       {
-        "src": "/lose1/(.*)",
-        "dest": "src/app.js",
+        "src": "/lose1",
+        "dest": "app.js",
         "methods": ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"]
       },
       {
-        "src": "/lose/(.*)",
-        "dest": "src/app.js",
+        "src": "/lose",
+        "dest": "app.js",
         "methods": ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"]
       },
       {
-        "src": "/victory/(.*)",
-        "dest": "src/app.js",
+        "src": "/victory",
+        "dest": "app.js",
         "methods": ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"]
       }
     ]
